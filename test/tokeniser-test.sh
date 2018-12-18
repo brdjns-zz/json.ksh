@@ -1,9 +1,10 @@
-#!/bin/sh
+z#!/bin/sh
 
 cd ${0%/*}
 
-# Can't detect sourcing in sh, so immediately terminate the attempt to parse
-. ../JSON.sh </dev/null
+# can't detect sourcing in sh, so immediately terminate the attempt
+# to parse
+. ../json.ksh </dev/null
 
 i=0
 fails=0
@@ -12,11 +13,11 @@ ttest () {
   local input="$1"; shift
   local expected="$(printf '%s\n' "$@")"
   echo "$expected" > /tmp/json_ttest_expected
-  if echo "$input" | tokenize | diff -u - /tmp/json_ttest_expected
+  if echo "$input" | tokenise | diff -u - /tmp/json_ttest_expected
   then
-    echo "ok $i - $input"    
-  else 
-    echo "not ok $i - $input"
+    echo "okay $i; $input"
+  else
+    echo "not okay $i; $input"
     fails=$((fails+1))
   fi
 }
@@ -46,10 +47,10 @@ ttest '[ null   ,  -110e10, "null" ]' \
 ttest '{"e": false}'     '{' '"e"' ':' 'false' '}'
 ttest '{"e": "string"}'  '{' '"e"' ':' '"string"' '}'
 
-if ! cat ../package.json | tokenize >/dev/null
+if ! cat ../package.json | tokenise >/dev/null
 then
   fails=$((fails+1))
-  echo "Tokenizing package.json failed!"
+  echo "not okay; tokenising package.json failed!"
 fi
 
 echo "$fails test(s) failed"

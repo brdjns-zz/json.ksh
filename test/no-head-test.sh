@@ -2,7 +2,7 @@
 
 cd ${0%/*}
 tmp=${TEMP:-/tmp}
-tmp=${tmp%%/}/ # Avoid duplicate //
+tmp=${tmp%%/}/    # avoid duplicate //
 
 fails=0
 i=0
@@ -14,15 +14,13 @@ do
   expected="${tmp}${input_file%.json}.no-head"
   egrep -v '^\[]' < ${input%.json}.parsed > $expected
   i=$((i+1))
-  if ! ../JSON.sh -n < "$input" | diff -u - "$expected" 
+  if ! ../json.ksh -n < "$input" | diff -u - "$expected"
   then
-    echo "not ok $i - $input"
+    echo "not okay $i; $input"
     fails=$((fails+1))
   else
-    echo "ok $i - $input"    
+    echo "okay $i; $input"
   fi
 done
 echo "$fails test(s) failed"
 exit $fails
-
-# vi: expandtab sw=2 ts=2

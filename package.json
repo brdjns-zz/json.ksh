@@ -1,18 +1,18 @@
 {
-  "name": "JSON.sh",
-  "version": "0.3.3",
-  "description": "JSON parser written in shell",
-  "homepage": "http://github.com/dominictarr/JSON.sh",
+  "name": "json.ksh",
+  "version": "0.3.4",
+  "description": "JSON parser implemented in KornShell",
+  "homepage": "https://github.com/brdjns/json.ksh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dominictarr/JSON.sh.git"
+    "url": "https://github.com/brdjns/json.ksh.git"
   },
   "bin": {
-    "JSON.sh": "./JSON.sh"
+    "json.ksh": "./json.ksh"
   },
   "dependencies": {},
   "devDependencies": {},
-  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://bit.ly/dominictarr)",
+  "author": "Bradley Jones <brdjns@sdf.org>",
   "scripts": {
     "test": "./all-tests.sh"
   }

@@ -9,12 +9,12 @@ for input in valid/*.json
 do
   expected="${input%.json}.parsed"
   i=$((i+1))
-  if ! ../JSON.sh < "$input" | diff -u - "$expected" 
+  if ! ../json.ksh < "$input" | diff -u - "$expected"
   then
-    echo "not ok $i - $input"
+    echo "not okay $i; $input"
     fails=$((fails+1))
   else
-    echo "ok $i - $input"    
+    echo "okay $i; $input"
   fi
 done
 echo "$fails test(s) failed"

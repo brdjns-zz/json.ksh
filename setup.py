@@ -8,16 +8,16 @@ import os
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='JSON.sh',
+    name='json.ksh',
     scripts=[
-        'JSON.sh',
+        'json.ksh',
     ],
     version='0.3.2',
-    description="JSON parser written in shell",
+    description="JSON parser implemented in KornShell",
     long_description="",
-    author='Dominic Tarr (http://bit.ly/dominictarr)',
-    author_email='dominic.tarr@gmail.com',
-    url='https://github.com/dominictarr/JSON.sh',
+    author='Bradley Jones',
+    author_email='brdjns@sdf.org',
+    url='https://github.com/brdjns/json.ksh',
     classifiers=[
         "Programming Language :: Unix Shell",
         "License :: OSI Approved :: MIT License",

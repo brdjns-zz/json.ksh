@@ -1,4 +1,5 @@
-# json.ksh
+json.ksh
+========
 
 json.ksh is a JSON parser written in KornShell, extended from JSON.sh.
 It differs from the former in that it uses idiomatic KornShell.  This
@@ -6,19 +7,22 @@ makes it fundamentally incompatible with the original Bourne shell, and
 barely compatible with the POSIX shell.
 
 
-## Installation
+Installation
+------------
 
 Clone the source and place it into your software project's source tree.
 
 
-## Usage
+Usage
+-----
 
 Operation is identical to JSON.sh.  One pipes JSON to it.  It traverses
 the JSON objects, printing out the path to the current object as a JSON
 array, followed by the object, without whitespace.
 
-``` bash
-  json_parse < package.json
+A simple example:
+
+  $ json_parse < package.json
   ["name"]  "json.ksh"
   ["version"]  "0.0.0"
   ["description"]  ""
@@ -29,15 +33,15 @@ array, followed by the object, without whitespace.
   ["bin","json_parse"]  "./json.ksh"
   ["bin"]  {"json_parse":"./json.ksh"}
   ["dependencies"]  {}
-```
-a more complex example:
 
-``` bash
+A more complex example:
+
   curl registry.npmjs.org/express | ./json.ksh \
        | egrep '\["versions","[^"]*"\]'
-```
 
-## Options
+
+Options
+-------
 
   -b   brief output: combine 'leaf only' and 'prune empty' options
 
@@ -53,15 +57,16 @@ a more complex example:
   -h   show usage
 
 
-## See also
+See also
+--------
+  
+  *  JSON.sh ported to AWK <https://github.com/step-/JSON.awk>
+  *  a BASH implementation <https://github.com/archan937/jsonv.sh>
+  *  JSONPath based on JSON.sh <https://github.com/mclarkson/JSONPath.sh>
 
-* [dominustarr/JSON.sh](https://github.com/dominictarr/JSON.sh) The original JSON in BASH
-* [step-/JSON.awk](https://github.com/step-/JSON.awk) JSON.sh ported to AWK
-* [archan937/jsonv.sh](https://github.com/archan937/jsonv.sh) Another BASH implementation
-* [mclarkson/JSONPath.sh](https://github.com/mclarkson/JSONPath.sh) JSONPath, based on JSON.sh
 
-
-## Copying
+Copying
+-------
 
 json.ksh distributed under the MIT and Apache 2.0 licences, and comes
 with absolutely no warranty, express or implied.  Use it at your own

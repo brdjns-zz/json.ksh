@@ -2,11 +2,12 @@
 
 cd ${0%/*}
 
-# Can't detect sourcing in sh, so immediately terminate the attempt to parse
-. ../JSON.sh </dev/null
+# can't detect sourcing in sh, so immediately terminate the attempt to
+# parse
+. ../json.ksh </dev/null
 
 ptest () {
-  tokenize | parse >/dev/null
+  tokenise | parse >/dev/null
 }
 
 fails=0
@@ -15,21 +16,21 @@ echo "1..4"
 for input in '"oooo"  ' '[true, 1, [0, {}]]  ' '{"true": 1}'
 do
   i=$((i+1))
-  if echo "$input" | ptest 
+  if echo "$input" | ptest
   then
-    echo "ok $i - $input"
+    echo "okay $i - $input"
   else
-    echo "not ok $i - $input"
+    echo "not okay $i - $input"
     fails=$((fails+1))
   fi
 done
 
 if ! ptest < ../package.json
 then
-  echo "not ok 4 - Parsing package.json failed!"
+  echo "not okay 4; parsing package.json failed!"
   fails=$((fails+1))
-else 
-  echo "ok $i - package.json"
+else
+  echo "okay $i; package.json"
 fi
 
 echo "$fails test(s) failed"
