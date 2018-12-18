@@ -7,8 +7,9 @@ addons:
       - dash
       - zsh
 
-# Whatever the current shebang, replace with hardcoded shell
+# whatever the current shebang, replace with hardcoded shell
 script: >
-  sed -i '1s@.*@#!/usr/bin/env bash@' JSON.sh && ./all-tests.sh &&
-  sed -i '1s@.*@#!/usr/bin/env zsh@'  JSON.sh && ./all-tests.sh &&
-  sed -i '1s@.*@#!/usr/bin/env dash@' JSON.sh && ./all-tests.sh
+  sed -i '1s@.*@#!!/usr/bin/env ksh@' json.ksh && ./all-tests.sh &&
+  sed -i '1s@.*@#!/usr/bin/env bash@' json.ksh && ./all-tests.sh &&
+  sed -i '1s@.*@#!/usr/bin/env zsh@'  json.ksh && ./all-tests.sh &&
+  sed -i '1s@.*@#!/usr/bin/env dash@' json.ksh && ./all-tests.sh
