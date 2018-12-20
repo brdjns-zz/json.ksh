@@ -30,6 +30,7 @@ array, followed by the object, without whitespace.
   ["bin"]  {"json_parse":"./json.ksh"}
   ["dependencies"]  {}
 ```
+
 a more complex example:
 
 ``` bash
@@ -39,19 +40,20 @@ a more complex example:
 
 ## Options
 
+```
   -b   brief output: combine 'leaf only' and 'prune empty' options
 
   -l   leaf only: only show leaf nodes, which stops data duplication
 
   -p   prune empty exclude fields with empty values
-  
+
   -n   no-head: do not show nodes that have no path; normally these
        output a leading '[]', which you cannot use in a ksh array
 
   -s   solidus: do not escape the solidus ('/')
 
   -h   show usage
-
+```
 
 ## See also
 
@@ -59,7 +61,6 @@ a more complex example:
 * [step-/JSON.awk](https://github.com/step-/JSON.awk) JSON.sh ported to AWK
 * [archan937/jsonv.sh](https://github.com/archan937/jsonv.sh) Another BASH implementation
 * [mclarkson/JSONPath.sh](https://github.com/mclarkson/JSONPath.sh) JSONPath, based on JSON.sh
-
 
 ## Copying
 
